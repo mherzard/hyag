@@ -37,6 +37,8 @@ python3 examples/example_usage.py
 python3 tests/test_basic.py
 ```
 
+**Requirements**: Python 3.9 or newer. Newer versions (3.10+) are recommended.
+
 > **Note**: The default `DummyLLMTranslator` does not call an external LLM; it is
 > included for offline testing and demonstration. To translate real Armenian text,
 > plug in `OllamaLLMTranslator`, `OpenAILLMTranslator`, or your own implementation

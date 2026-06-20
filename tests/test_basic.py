@@ -10,10 +10,10 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import asyncio
 
-from src.translator import SpecializedTranslator
-from src.validator import ValidationLayer, ValidationIssue
-from src.agent_client import EchoToolAgent
-from src.bridge import ArmenianAgentBridge
+from hyag.translator import SpecializedTranslator
+from hyag.validator import ValidationLayer, ValidationIssue
+from hyag.agent_client import EchoToolAgent
+from hyag.bridge import ArmenianAgentBridge
 
 
 SAMPLE_DICT = {

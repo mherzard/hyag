@@ -37,7 +37,11 @@ class TranslationService:
     ):
         if dictionaries is None:
             if dictionary_path is None:
-                dictionary_path = str(Path(__file__).parent.parent / "config" / "dictionaries.json")
+                candidates = [
+                    Path(__file__).parent.parent / "config" / "dictionaries.json",
+                    Path(__file__).parent / "config" / "dictionaries.json",
+                ]
+                dictionary_path = str(next((p for p in candidates if p.exists()), candidates[0]))
             with open(dictionary_path, "r", encoding="utf-8") as f:
                 dictionaries = json.load(f)
 

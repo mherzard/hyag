@@ -6,9 +6,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.bridge import ArmenianAgentBridge
-from src.agent_client import EchoToolAgent
-from src.llm_client import OllamaLLMTranslator
+from hyag.bridge import ArmenianAgentBridge
+from hyag.agent_client import EchoToolAgent
+from hyag.llm_client import OllamaLLMTranslator
 
 
 async def main():

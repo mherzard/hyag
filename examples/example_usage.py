@@ -7,8 +7,8 @@ from pathlib import Path
 # Allow running from the examples directory without installing
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.bridge import ArmenianAgentBridge
-from src.agent_client import EchoToolAgent
+from hyag.bridge import ArmenianAgentBridge
+from hyag.agent_client import EchoToolAgent
 
 
 async def main():

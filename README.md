@@ -9,12 +9,15 @@ executes them via an agent layer, and returns the results in Armenian.
 hyag/
 ├── config/
 │   └── dictionaries.json    # Armenian ↔ English dictionaries
-├── src/
+├── hyag/
+│   ├── __init__.py           # Public API exports
+│   ├── cli.py                # Command-line interface
 │   ├── translator.py         # SpecializedTranslator with dictionary pre/post processing
 │   ├── validator.py          # ValidationLayer for three-stage validation
 │   ├── llm_client.py         # LLM translation client interface
 │   ├── agent_client.py       # Agent execution client interface
-│   └── bridge.py             # ArmenianAgentBridge orchestrator
+│   ├── bridge.py             # ArmenianAgentBridge orchestrator
+│   └── translation_service.py # Lightweight translation helpers
 ├── .claude/
 │   └── skills/
 │       └── hyag.md          # Claude Code skill for Armenian prompts
@@ -49,9 +52,9 @@ python3 tests/test_basic.py
 If you run local models with Ollama, use the included `OllamaLLMTranslator`:
 
 ```python
-from src.bridge import ArmenianAgentBridge
-from src.llm_client import OllamaLLMTranslator
-from src.agent_client import EchoToolAgent
+from hyag import ArmenianAgentBridge
+from hyag.llm_client import OllamaLLMTranslator
+from hyag.agent_client import EchoToolAgent
 
 llm = OllamaLLMTranslator(model="llama3.1", base_url="http://localhost:11434")
 bridge = ArmenianAgentBridge(llm_translator=llm, agent_executor=EchoToolAgent())
@@ -61,6 +64,8 @@ result = await bridge.run("կարդա app.py ֆայլը")
 Or use the OpenAI-compatible endpoint:
 
 ```python
+from hyag.llm_client import OllamaLLMTranslator
+
 llm = OllamaLLMTranslator.openai_compatible(
     model="llama3.1",
     base_url="http://localhost:11434/v1",
@@ -116,6 +121,29 @@ Dictionaries live in `config/dictionaries.json`. They are split into:
 - `project`: project/domain specific terms
 - `protected`: names that must never be translated (`app.py` → `app.py`)
 - `keep_english`: terms that may remain in English in the final output (`API`, `HTTP`)
+
+## Installation as a package
+
+You can install `hyag` in editable mode so it is importable from any Python
+project or virtual environment:
+
+```bash
+cd /Users/macbook/myai/hyag
+pip install -e .
+```
+
+After installation you can run the CLI globally:
+
+```bash
+hyag translate-prompt "կարդա app.py ֆայլը"
+```
+
+And import it from any project:
+
+```python
+from hyag import ArmenianAgentBridge
+from hyag.llm_client import OllamaLLMTranslator
+```
 
 ## Customization
 

@@ -1,0 +1,54 @@
+{
+  "general": {
+    "ֆունկցիա": "function",
+    "մեթոդ": "method",
+    "դաս": "class",
+    "փոփոխական": "variable",
+    "հաստատուն": "constant",
+    "ցիկլ": "loop",
+    "պայման": "condition",
+    "տվյալների բազա": "database",
+    "աղյուսակ": "table",
+    "սխալ": "error",
+    "թեստ": "test",
+    "թեստավորում": "testing",
+    "ֆայլ": "file",
+    "թղթապանակ": "folder",
+    "պանակ": "directory",
+    "կոդ": "code",
+    "տող": "line",
+    "խնդիր": "issue",
+    "վրիպակ": "bug",
+    "հրաման": "command",
+    "հարցում": "query",
+    "արդյունք": "result",
+    "գործիք": "tool",
+    "ագենտ": "agent"
+  },
+  "project": {
+    "հաշվառման համակարգ": "accounting_system",
+    "օգտագործող": "user",
+    "գնում": "purchase",
+    "հաշիվ": "invoice",
+    "գործարք": "transaction"
+  },
+  "protected": {
+    "app.py": "app.py",
+    "main()": "main()",
+    "main": "main",
+    "UserModel": "UserModel",
+    "process_payment": "process_payment",
+    "README.md": "README.md",
+    "requirements.txt": "requirements.txt"
+  },
+  "keep_english": {
+    "API": "API",
+    "HTTP": "HTTP",
+    "URL": "URL",
+    "JSON": "JSON",
+    "SQL": "SQL",
+    "HTML": "HTML",
+    "CSS": "CSS",
+    "CLI": "CLI"
+  }
+}

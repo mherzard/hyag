@@ -7,11 +7,11 @@ executes them via an agent layer, and returns the results in Armenian.
 
 ```
 hyag/
-├── config/
-│   └── dictionaries.json    # Armenian ↔ English dictionaries
 ├── hyag/
 │   ├── __init__.py           # Public API exports
 │   ├── cli.py                # Command-line interface
+│   ├── config/
+│   │   └── dictionaries.json # Armenian ↔ English dictionaries
 │   ├── translator.py         # SpecializedTranslator with dictionary pre/post processing
 │   ├── validator.py          # ValidationLayer for three-stage validation
 │   ├── llm_client.py         # LLM translation client interface

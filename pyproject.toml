@@ -43,3 +43,6 @@ hyag-cli = "hyag.cli:main"
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["hyag*"]
+
+[tool.setuptools.package-data]
+hyag = ["config/*.json"]

@@ -25,8 +25,9 @@ from hyag.llm_client import DummyLLMTranslator, OllamaLLMTranslator
 from hyag.translation_service import TranslationService
 
 
-def _default_project_root() -> Path:
-    return Path(__file__).resolve().parent.parent
+def _default_dictionary_path() -> str:
+    # When installed as a package, the config sits next to this module.
+    return str(Path(__file__).resolve().parent / "config" / "dictionaries.json")
 
 
 def _llm_from_env():
@@ -41,7 +42,7 @@ def _llm_from_env():
 def _dictionary_path(args) -> str:
     if args.dictionary:
         return args.dictionary
-    return str(_default_project_root() / "config" / "dictionaries.json")
+    return _default_dictionary_path()
 
 
 async def cmd_translate_prompt(args) -> None:
@@ -76,7 +77,7 @@ def main():
     parser.add_argument(
         "--dictionary",
         type=str,
-        default=str(_default_project_root() / "config" / "dictionaries.json"),
+        default=str(Path(__file__).resolve().parent / "config" / "dictionaries.json"),
         help="Path to dictionaries.json",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
